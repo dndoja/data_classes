@@ -24,7 +24,7 @@ List<String> generateFieldDeserializer(
   return [
     'setModelField<$type>(',
     '  json,',
-    "  '$fieldJsonName',",
+    "  r'$fieldJsonName',",
     '  (v) => model.$fieldName = v${type.isRequired ? '!' : ''},',
     if (deserializer != null) '  getter: (j) => $deserializer,',
     if (type.isRequired)
