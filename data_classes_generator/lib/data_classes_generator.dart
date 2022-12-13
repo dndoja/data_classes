@@ -207,8 +207,8 @@ class DataClassGenerator extends GeneratorForAnnotation<DataClass> {
       "String toString() => \'$className(\\n'",
       for (final field in fields)
         _isNullable(field)
-            ? "'''\${${field.name} != null ? '  ${field.name}: \${${field.name}!}\\n' : ''}'''"
-            : "'  ${field.name}: \$${field.name}\\n'",
+            ? "'''\${${field.name} != null ? '  ${field.name}: \${{${field.name}!}}\\n' : ''}'''"
+            : "'  ${field.name}: \${${field.name}}\\n'",
       "')';\n",
 
       /// copy
