@@ -9,6 +9,18 @@ import 'package:source_gen/source_gen.dart';
 import 'package:data_classes/data_classes.dart';
 import 'deserialization.dart';
 
+const lintIgnores = [
+  'deprecated_member_use_from_same_package',
+  'duplicate_ignore',
+  'lines_longer_than_80_chars',
+  'prefer_constructors_over_static_methods',
+  'unnecessary_lambdas',
+  'unnecessary_null_comparison',
+  'unnecessary_nullable_for_final_variable_declarations',
+  'unused_element',
+  'require_trailing_commas',
+  'unnecessary_brace_in_string_interps',
+];
 const modelSuffix = 'Model';
 
 Builder generateDataClass(BuilderOptions options) =>
@@ -133,7 +145,7 @@ class DataClassGenerator extends GeneratorForAnnotation<DataClass> {
     /// Actually generate the class.
     final StringBuffer buffer = StringBuffer();
     buffer.writeAll([
-      '// ignore_for_file: deprecated_member_use_from_same_package, duplicate_ignore, lines_longer_than_80_chars, prefer_constructors_over_static_methods, unnecessary_lambdas, unnecessary_null_comparison, unnecessary_nullable_for_final_variable_declarations, unused_element, require_trailing_commas',
+      '// ignore_for_file: ${lintIgnores.join(', ')}',
 
       /// Start of the class.
       '/// {@category model}',
